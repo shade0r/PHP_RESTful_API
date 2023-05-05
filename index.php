@@ -8,8 +8,18 @@ spl_autoload_register(function($class){
 });
 set_error_handler("ErrorHandler::handleErrors");
 set_exception_handler("ErrorHandler::handleException");
-$conn = new Database('localhost','API_data','yourusername','yourpass');
+$conn = new Database('localhost','API_data','shade0r','phpmyadmin');
 header("Content-type:application/json; charset=UTF-8");
+$headers = getallheaders();
+$authHeader = "Authorization";
+if (!array_key_exists($authHeader,$headers)) {
+    // Return an error response if the header is missing
+    header('HTTP/1.1 401 Unauthorized');
+    echo 'Authorization header missing';
+	exit;
+}
+$auth_user = new AuthenticateController($headers[$authHeader],$conn);
+$auth_user->validateToken();
 $parts = explode('/',$_SERVER['REQUEST_URI']);
 if ($parts[1] != 'products'){
     http_response_code(404);
