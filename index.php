@@ -8,7 +8,7 @@ spl_autoload_register(function($class){
 });
 set_error_handler("ErrorHandler::handleErrors");
 set_exception_handler("ErrorHandler::handleException");
-$conn = new Database('localhost','API_data','shade0r','phpmyadmin');
+$conn = new Database('localhost','API_data','yourusername','yourpass');
 header("Content-type:application/json; charset=UTF-8");
 $parts = explode('/',$_SERVER['REQUEST_URI']);
 if ($parts[1] != 'products'){
