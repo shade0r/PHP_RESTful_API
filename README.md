@@ -22,4 +22,4 @@ You should also design your API to be easily discoverable and self-describing, u
 Overall, designing a RESTful API requires careful consideration of the principles of REST, as well as the needs of the application and the users who will be using the API. By following these principles, you can create an API that is easy to use, scalable, and maintainable.
 
 ## Autherization
-for Autherization I added simple method wich take (Autherization: token_value) as a request header and compare the token values to pre-set tokens I set before in the database tokens table (You can set your owns) and if this token valid then you can use the api else you are not authorized to use it
+for Authorization I added a simple method that takes (Authorization: token_value) as a request header and compares the token values to pre-set tokens I set before in the database tokens table (You can set your own) and if this token is valid then you can use the api else you are not authorized to use it
